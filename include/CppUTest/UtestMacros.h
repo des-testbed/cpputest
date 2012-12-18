@@ -186,4 +186,14 @@
 #define UT_CRASH() { UtestShell::crash(); }
 #define RUN_ALL_TESTS(ac, av) CommandLineTestRunner::RunAllTests(ac, av)
 
+#define CHECK_THROW(expression, ExpectedExceptionType) {\
+    bool hasBeenThrown_ = false; \
+    try { expression; } \
+    catch (ExpectedExceptionType const&) { hasBeenThrown_ = true; } \
+    catch (...) {} \
+    if (!hasBeenThrown_) {\
+        FAIL("Expected exception \"" #ExpectedExceptionType "\" has not been thrown"); \
+    } \
+}
+
 #endif /*D_UTestMacros_h*/
