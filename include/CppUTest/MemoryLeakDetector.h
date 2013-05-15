@@ -39,7 +39,7 @@
 										 "\tIf this is the case, check whether your malloc/free replacements are working (#define malloc cpputest_malloc etc).\n"
 
 #define MEM_LEAK_NORMAL_FOOTER_SIZE (sizeof(MEM_LEAK_FOOTER) + 10 + sizeof(MEM_LEAK_TOO_MUCH)) /* the number of leaks */
-#define MEM_LEAK_NORMAL_MALLOC_FOOTER_SIZE (MEM_LEAK_NORMAL_FOOTER_SIZE + sizeof(MEM_LEAK_ADDITION_MALLOC_WARNING))
+#define MEM_LEAK_NORMAL_MALLOC_FOOTER_SIZE (int)(MEM_LEAK_NORMAL_FOOTER_SIZE + sizeof(MEM_LEAK_ADDITION_MALLOC_WARNING))
 
 
 #define MEM_LEAK_ALLOC_DEALLOC_MISMATCH "Allocation/deallocation type mismatch\n"
